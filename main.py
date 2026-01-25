@@ -1,5 +1,5 @@
-import palendrome
-import combineSortedArrays
+import Two_Pointers.palendrome as palendrome
+import Two_Pointers.combineSortedArrays as combineSortedArrays
 
     
 
