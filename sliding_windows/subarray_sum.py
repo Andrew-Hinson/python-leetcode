@@ -2,12 +2,14 @@
 # find the sum of the subarray with the largest sum whose length is k.
 
 def largest_sum_subarray(intArray, k):
-    ans = rightPos = currSum = 0
-
+    rightPos = currSum = 0
+# build the first subarray
     while rightPos < k:
         currSum += intArray[rightPos]
+# this loop ends and rightPos is now == k - and then doesn't iterate anymore - i.e. == 3
         rightPos += 1
 
+    ans = currSum
 
     # rightPos is now at element k, which isn't in currSum yet
     for rightPos in range(rightPos, len(intArray)):
