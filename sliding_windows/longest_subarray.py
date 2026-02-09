@@ -2,7 +2,7 @@
 # find the length of the longest subarray whose sum is less than or equal to k
 
 def subArrayFinder(array, k):
-    positionLeft, positionRight, curr, ans = 0
+    positionLeft = positionRight = curr = ans = 0
 
     for positionRight in range(len(array)):
         curr += array[positionRight]
