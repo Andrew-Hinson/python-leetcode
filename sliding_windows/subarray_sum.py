@@ -8,7 +8,7 @@ def largest_sum_subarray(intArray, k):
         currSum += intArray[rightPos]
 # this loop ends and rightPos is now == k - and then doesn't iterate anymore - i.e. == 3
         rightPos += 1
-
+# set ans AFTER currSum for first window is calculated
     ans = currSum
 
     # rightPos is now at element k, which isn't in currSum yet
