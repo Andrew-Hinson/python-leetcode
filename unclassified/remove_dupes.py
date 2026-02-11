@@ -39,22 +39,16 @@
 #     print(nums)
 #     return nums
 
-
+# this is a fundamental misunderstanding by me on what remove() does. will update. this is NOT correct
 def remove_dupes(nums):
 
     for num in range(len(nums)):
         if nums[num] == nums[-1]:
-            print("finished processing")
+            # not sure if they want the number of unique vals returned or the array returned
             print(nums)
-            print(len(nums))
             return nums
-        if nums[num] != nums[num + 1]:
-            print(nums[num])
-            print(nums[num + 1])
         if nums[num] == nums[num + 1]:
-            print(f"removing num {nums[num]}")
             nums.remove(nums[num])
-        print(nums)
 
 
 
@@ -65,4 +59,4 @@ def remove_dupes(nums):
 
 
 
-remove_dupes([1,1,2,3,4])
+remove_dupes([2,10,10,30,30,30])
