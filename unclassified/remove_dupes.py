@@ -39,21 +39,22 @@
 #     print(nums)
 #     return nums
 
-# this is a fundamental misunderstanding by me on what remove() does. will update. this is NOT correct
+# 2 pointer solution
+# for every unique item, left_pointer += 1
+# we use left pointer to keep track of positon as well of "left pointer"
+# we compare right pointer value to left pointer value.
+# if right pointer value == left pointer value, 
 def remove_dupes(nums):
-
-    for num in range(len(nums)):
-        if nums[num] == nums[-1]:
-            # not sure if they want the number of unique vals returned or the array returned
-            print(nums)
-            return nums
-        if nums[num] == nums[num + 1]:
-            nums.remove(nums[num])
-
-
-
-
-
+    left = 1
+    # start right pointer at position 1, not 0
+    for right in range(1, len(nums)):
+        if nums[right] != nums[right - 1]:
+            # right is comparing if right is at a new number.
+            # if right is at a new number, incriment left
+            nums[left] = nums[right] 
+            left += 1
+    return left
+        
 
 
 
