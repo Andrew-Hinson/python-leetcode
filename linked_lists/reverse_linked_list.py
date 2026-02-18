@@ -14,5 +14,28 @@
 #         self.val = val
 #         self.next = next
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+# O(n) time complexity 0(1) space because of additional pointers
+class Solution:
+    def reverse_list(self, head: ListNode) -> ListNode:
+        prev, curr = None, head
+
+# this traverses the list from the head to tail and reverses the pointers the nodes have to point to the head
+        while curr:
+            # save reference to the next node
+            nxt = curr.next
+            # point curr.next to previous node
+            curr.next = prev
+            # set previous node to current node
+            prev = curr
+            # set current node to nxt
+            curr = nxt
+        return prev
+
 
 
