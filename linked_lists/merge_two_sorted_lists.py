@@ -17,22 +17,29 @@ class Solution:
         # the head will be the smallest num
         # the lists are sorted already.
 
-        curr_node1 = list1
-        curr_node2 = list2
-        head = 0
-        while curr_node1:
-            next_node1 = curr_node1.next
-            next_node2 = curr_node2.next
-            if curr_node2.val > curr_node1.val:
-                curr_node1.next = curr_node2
-            else: 
-                curr_node2.next = curr_node1
-            curr_node1 = next_node1
-            curr_node2 = next_node2
-        
-        if list1.val > list2.val:
-            head = list1
-        else:
-            head = list2
 
-        return head
+        dummy = ListNode()
+# we name this pointer tail as its "tailing" where we are at in the lists
+        tail = dummy
+# check if both lists are not empty
+        while list1 and list2:
+# whichever is smaller, thats the next node
+# progress the nodes on the list that was smaller
+            if list1.val < list2.val:
+                tail.next = list1
+                list1 = list1.next
+# so basically we progress one of the lists at a time depending on which list.val is less than the other
+            else:
+                tail.next = list2
+                list2 = list2.next
+
+            tail = tail.next
+
+# exhust each list if not exhausted
+        if list1:
+            tail.next = list1
+        elif list2:
+            tail.next = list2
+# dummy is a blank node it has no value, the next node is our "head"
+# "give me everything after that placeholder node from the start"
+        return dummy.next
