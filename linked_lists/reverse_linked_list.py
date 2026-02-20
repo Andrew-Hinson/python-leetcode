@@ -22,20 +22,26 @@ class ListNode:
 
 # O(n) time complexity 0(1) space because of additional pointers
 class Solution:
-    def reverse_list(self, head: ListNode) -> ListNode:
-        prev, curr = None, head
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+# node1 -> node2 -> node3 
+# return new head after reversing
 
-# this traverses the list from the head to tail and reverses the pointers the nodes have to point to the head
-        while curr:
-            # save reference to the next node
-            nxt = curr.next
-            # point curr.next to previous node
-            curr.next = prev
-            # set previous node to current node
-            prev = curr
-            # set current node to nxt
-            curr = nxt
-        return prev
+# iterate through nodes, while iterating, swapping pointers, the end is my new head
+# two pointer solution
+        curr_node, prev_node = head, None
+        while curr_node:
+# first thing, create temp pointer to next node
+# because we need to know where we are going, its where curr node will be next iteration
 
-
+            next_node = curr_node.next
+# the whole point is to change the pointers in the other direction
+# point curr_node to where its from - previous node
+            curr_node.next = prev_node
+            # set prev = curr
+# we need to progress prev node so that current node when it progresses can point back to previous node
+            prev_node = curr_node
+            # move cur to next
+            curr_node = next_node
+#prev node will be pointing at the head because cur_node will be null when it reaches there.
+        return prev_node
 
